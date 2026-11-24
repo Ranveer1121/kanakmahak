@@ -1,0 +1,21 @@
+name: Rename website file to index.html
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename file to index.html
+        run: |
+          ls -l
+          git mv kanak-mahak-website.html index.html
+          git config user.name "Ranveer1121"
+          git config user.email "kanakmahak.export@gmail.com"
+          git commit -m "Rename kanak-mahak-website.html to index.html"
+          git push
